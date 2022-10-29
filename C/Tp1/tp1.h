@@ -1,11 +1,10 @@
-/*!****************************************************
+/*****************************************************
 * \file    tp1.h
-* \author A Yohann MALEY
-* \date   22 octobre 2022
-* \brief  contient la déclaration des fonctions du tp1
+* \author  Yohann MALEY
+* \date    22 octobre 2022
+* \brief   Contient les prototypes des fonctions du tp1
 * \version 1.0
-******************************************************
-*/
+******************************************************/
 
 #ifndef TP1_H
 #define TP1_H
