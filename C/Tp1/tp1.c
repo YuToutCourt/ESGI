@@ -26,7 +26,7 @@ int main(int argc, char const *argv[]){
     */
 
     // Affichage du menu et choix de l'utilisateur
-    int choix;
+    short choix;
     do {
         printf("Choisissez un exercice : \n");
         printf("1. Surface du pentagone\n");
@@ -124,10 +124,10 @@ void somme_multiple(){
 }
 
 void the_greatest(){
-    const int number_of_numbers_to_compare = 5;
-    int nombre, max;
-    int index = 0;
-    for(int i = 0; i < number_of_numbers_to_compare; i++){
+    const short number_of_numbers_to_compare = 5;
+    short nombre, max;
+    short index = 0;
+    for(short i = 0; i < number_of_numbers_to_compare; i++){
         printf("Entrez le nombre numero %d/%d : ", i+1, number_of_numbers_to_compare);
         scanf("%d", &nombre);
 
@@ -171,7 +171,7 @@ void suite(){
 
 void table_ascii(){
 
-    short int number_of_characters_on_line = 0;
+    short number_of_characters_on_line = 0;
     for(short i = 33; i <= 127; i++){
         printf("[%d, %c] ", i, i);
         number_of_characters_on_line++;
