@@ -6,11 +6,6 @@
 * \version 1.0
 ******************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-#define PI 3.14159265358979323846
 #include "tp1.h"
 
 
@@ -28,7 +23,7 @@ int main(int argc, char const *argv[]){
     // Affichage du menu et choix de l'utilisateur
     short choix;
     do {
-        printf("Choisissez un exercice : \n");
+        printf("\n\nChoisissez un exercice : \n");
         printf("1. Surface du pentagone\n");
         printf("2. Somme & multiplication\n");
         printf("3. Le plus grand nombre\n");
@@ -124,11 +119,10 @@ void somme_multiple(){
 }
 
 void the_greatest(){
-    const short number_of_numbers_to_compare = 5;
-    short nombre, max;
-    short index = 0;
-    for(short i = 0; i < number_of_numbers_to_compare; i++){
-        printf("Entrez le nombre numero %d/%d : ", i+1, number_of_numbers_to_compare);
+    int nombre, max;
+    int index = 0;
+    for(int i = 0; i < 5; i++){
+        printf("Entrez le nombre numero %d/%d : ", i+1, 5);
         scanf("%d", &nombre);
 
         // On initialise le max avec le premier nombre

@@ -6,10 +6,6 @@
 * \version 1.0
 ******************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
 
 #include "tp2.h"
 
@@ -26,36 +22,48 @@ int main(int argc, char const *argv[]){
 
     srand(time(NULL));  /* initialise le générateur pseudo aléatoire */
 
-    // Affichage du menu et choix de l'utilisateur
+    
+    int n;
     short choix;
+
+    // Affichage du menu et choix de l'utilisateur
     do {
+        printf("\n\nChoisissez un exercice : \n");
         printf("1. Equation du second degre\n");
-        printf("2. Suite de Fibonacci\n");
-        printf("3. Nombre d or de Fibonacci\n");
-        printf("4. 421\n");
+        printf("2. Suite Rn\n");
+        printf("3. Fibonacci\n");
+        printf("4. Nombre d'or de Fibonacci\n");
+        printf("5. Dice\n");
         printf("0. Quitter\n");
         printf("Votre choix : ");
         scanf("%hd", &choix);
-        switch (choix){
-            case 1:
-                equation_second_degre();
-                break;
-            case 2:
-                suite();
-                break;
-            case 3:
-                nombre_or_fibo();
-                break;
-            case 4:
-                dice();
-                break;
-            case 5:
-                printf("Au revoir !\n");
-                break;
-            default:
-                printf("Choix invalide !\n");
-                break;
+        switch (choix)
+        {
+        case 1:
+            equation_second_degre();
+            break;
+        case 2:
+            suite();
+            break;
+        case 3:
+            printf("Entrez la valeur de n : ");
+            scanf("%d", &n);
+            fibonacci(n);
+            break;
+        case 4:
+            nombre_or_fibo();
+            break;
+        case 5:
+            dice();
+            break;
+        case 6:
+            printf("Au revoir !\n");
+            break;
+        default:
+            printf("Choix invalide !\n");
+            break;
         }
+
     } while (choix != 0);
 
     return 0;
@@ -95,7 +103,7 @@ void suite(){
     scanf("%d", &n);
 
     // Calcul de la valeur de u(n-1)
-    for (int i = 0; i < n-1; i++){
+    for (int i = 0; i <= n-1; i++){
         un1 = 0.5 * (u0 + 2/u0);
         u0 = un1;
         if (i % 10 == 0) printf("U%d = %.2f\n", i, u0);
@@ -107,14 +115,11 @@ void suite(){
     printf("Le resultat de U[%d] est : %.2f\n", n, u0);
 }
 
-unsigned long long int fibonacci(){
+int fibonacci(int n){
 
-    unsigned long long int n;
-    printf("Entrez la valeur de n : ");
-    scanf("%d", &n);
-    unsigned long long int val = n;
-    unsigned long long int first = 0, second = 1;
-    unsigned long long int tmp;
+    int val = n;
+    int first = 0, second = 1;
+    int tmp;
 
     while (n--) {
         tmp = first + second;

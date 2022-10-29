@@ -1,5 +1,10 @@
-#include <stdio.h>
-#include <time.h>
+/***********************************************************************
+* \file    TP2.h
+* \author  Yohann MALEY
+* \date    29 octobre 2022
+* \brief   Fichier qui contient des fonctions utiles pour le tp2 (dice)
+* \version 1.0
+************************************************************************/
 
 #include "tp2.h"
 

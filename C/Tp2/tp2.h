@@ -6,7 +6,12 @@
 * \version 1.0
 ******************************************************/
 
+#include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <math.h>
+#include <time.h>
+
 #ifndef TP2_H
 #define TP2_H
 
@@ -26,10 +31,11 @@ void suite();
 
 /**
  * @brief Fonction qui permet de calculer Fibonacci
+ * @param n [int]
  * 
  * @return unsigned long long int 
  */
-unsigned long long int fibonacci();
+int fibonacci(int n);
 
 /**
  * @brief Fonction qui permet de calculer le nombre d'or de Fibonacci
@@ -49,9 +55,9 @@ void dice();
 /**
  * @brief Fonction qui permet de savoir si un nombre est dans un tableau
  * 
- * @param value 
- * @param array 
- * @param size 
+ * @param value [short]
+ * @param array [short *]
+ * @param size [short]
  * @return true 
  * @return false 
  */
@@ -60,9 +66,9 @@ extern bool in(short value, short *array, short size);
 /**
  * @brief Fonction qui permet de savoir si tous les nombres d'un tableau sont dans un autre tableau
  * 
- * @param list 
- * @param array 
- * @param size 
+ * @param list [short *]
+ * @param array [short *]
+ * @param size [short]
  * @return true 
  * @return false 
  */
@@ -78,16 +84,16 @@ extern short roll_dice();
 /**
  * @brief Fonction qui permet d'afficher les nombres obtenus
  * 
- * @param list 
- * @param size 
+ * @param list [short *]
+ * @param size [int]
  */
 extern void display_gotten_numbers(short *list, int size);
 
 /**
  * @brief Fonction qui permet d'afficher les nombres gardés
  * 
- * @param list 
- * @param size 
+ * @param list [short *]
+ * @param size [short]
  */
 extern void keep(short list[], short size);
 

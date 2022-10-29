@@ -6,6 +6,12 @@
 * \version 1.0
 ******************************************************/
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define PI 3.14159265358979323846
+
 #ifndef TP1_H
 #define TP1_H
 
@@ -42,8 +48,8 @@ void table_ascii();
 /**
  * @brief affiche un sapin de hauteur n et de caractère c
  * 
- * @param hauteur 
- * @param symbole 
+ * @param hauteur [in] hauteur du sapin
+ * @param symbole [in] caractère du sapin
  */
 void afficheTriangleSapin(const unsigned int hauteur, char symbole);
 
