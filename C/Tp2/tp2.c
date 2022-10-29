@@ -1,13 +1,63 @@
+/*****************************************************
+* \file    TP2.h
+* \author  Yohann MALEY
+* \date    29 octobre 2022
+* \brief   Contient le code des fonctions du tp2
+* \version 1.0
+******************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 #include "tp2.h"
 
 
 int main(int argc, char const *argv[]){
+    
+    /*
+        __
+    ___( o)>  (KOINK)
+    \ <_. )
+    `---'  
+               
+    */
 
-    dice();
+    srand(time(NULL));  /* initialise le générateur pseudo aléatoire */
+
+    // Affichage du menu et choix de l'utilisateur
+    short choix;
+    do {
+        printf("1. Equation du second degre\n");
+        printf("2. Suite de Fibonacci\n");
+        printf("3. Nombre d or de Fibonacci\n");
+        printf("4. 421\n");
+        printf("0. Quitter\n");
+        printf("Votre choix : ");
+        scanf("%hd", &choix);
+        switch (choix){
+            case 1:
+                equation_second_degre();
+                break;
+            case 2:
+                suite();
+                break;
+            case 3:
+                nombre_or_fibo();
+                break;
+            case 4:
+                dice();
+                break;
+            case 5:
+                printf("Au revoir !\n");
+                break;
+            default:
+                printf("Choix invalide !\n");
+                break;
+        }
+    } while (choix != 0);
+
     return 0;
 }
 
@@ -44,11 +94,14 @@ void suite(){
     printf("Entrez la valeur de n : ");
     scanf("%d", &n);
 
+    // Calcul de la valeur de u(n-1)
     for (int i = 0; i < n-1; i++){
         un1 = 0.5 * (u0 + 2/u0);
         u0 = un1;
         if (i % 10 == 0) printf("U%d = %.2f\n", i, u0);
     }
+
+    // Calcul de la valeur de U(n)
     un1 = 0.5 * (u0 + 2/u0);
     u0 = un1;
     printf("Le resultat de U[%d] est : %.2f\n", n, u0);
@@ -89,7 +142,7 @@ void nombre_or_fibo(){
 
 void dice(){
 
-
+    // Déclaration des variables
     short dices[3];
     short value_we_need[3] = {1, 2, 4};
     short value_gotten[3] = {-1, -1, -1};
@@ -102,40 +155,46 @@ void dice(){
     printf("Entrez le nombre de parties : ");
     scanf("%d", &nb_games);
 
+
+    // Boucle de jeu sur le nombre de parties
     for (short i = 0; i < nb_games; i++){
 
+        // 
         for(short r = 0; r < 3; r++){
 
-            for (short j = 0; j < nb_dice; j++){
-                dices[j] = random_value();
-            }
+            // Ajout de la valeur obtenue dans le tableau de dés
+            for (short j = 0; j < nb_dice; j++) dices[j] = roll_dice();
 
             printf("Lancer %d avec %d des : ", r+1, nb_dice);
 
+            // Affichage des valeurs obtenues
             for (short j = 0; j < 3; j++){
                 printf("%d ", dices[j]);
             }
 
-            // if any of the dices have given a value we need
-            if (index_(1, dices, nb_dice) == -1 && index_(2, dices, nb_dice) == -1 && index_(4, dices, nb_dice) == -1){
+            // Si aucun des dés n'a les valeurs recherchée
+            if (!in(1, dices, nb_dice) && !in(2, dices, nb_dice) && !in(4, dices, nb_dice)){
                 printf("Je ne garde rien ");
                 display_gotten_numbers(value_gotten, 3);
             }
             else {
                 for (short j = 0; j < 3; j++){
-                    if (index_(value_we_need[j], dices, nb_dice) != -1 && !in(value_we_need[j], value_gotten, 3)){
+                    // Si la valeur recherchée est présente dans le tableau de dés et qu'elle n'a pas déjà été obtenue
+                    if (in(value_we_need[j], dices, nb_dice) && !in(value_we_need[j], value_gotten, 3)){
                         value_gotten[index_value_gotten] = value_we_need[j];
                         index_value_gotten++;
-                        nb_dice--;
                     }
                 }
-                keep(value_gotten, 3);
+                keep(value_gotten, nb_dice);
+                nb_dice -= index_value_gotten;
                 display_gotten_numbers(value_gotten, 3);
             }
 
-            if (nb_dice == 0) {
+            // Si toute les valeurs recherchées sont présentes dans le tableau des valeurs obtenues
+            if (all_in(value_we_need, value_gotten, 3)) {
                 printf("Partie %d gagnee en %d coups", i+1, r+1);
                 nb_wins++;
+                break;
             }
             else if (r == 2){
                 printf("Partie %d perdue", i+1);
@@ -143,14 +202,13 @@ void dice(){
             } 
         }
 
+        // Réinitialisation des variables
         printf("\n\n\n");
         nb_dice = 3;
         index_value_gotten = 0;
-        value_gotten[0] = -1;
-        value_gotten[1] = -1;
-        value_gotten[2] = -1;
+        for (short j = 0; j < 3; j++) value_gotten[j] = -1;
     }
 
-    printf("Vous avez joue %d parties, %d gagnees et %d perdue(s) soit %.2f%% de gain", nb_games, nb_wins, nb_loses, (float)nb_wins / nb_games * 100);
+    printf("Vous avez joue %d parties, %d gagnees et %d perdue(s) soit %.2f%% de gain\n", nb_games, nb_wins, nb_loses, (float)nb_wins / nb_games * 100);
 
 }

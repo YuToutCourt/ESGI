@@ -11,19 +11,14 @@ bool in(short value, short *array, short size){
     return false;
 }
 
-
-short index_(short value, short *list, short size){
-    short i;
-    for (i = 0; i < size; i++){
-        if (list[i] == value){
-            return i;
-        }
+bool all_in(short *list, short *array, short size){
+    for (int i = 0; i < size; i++){
+        if (!in(list[i], array, size)) return false;
     }
-    return -1;
+    return true;
 }
 
-short random_value(){
-    srand(time(NULL));  /* initialise le générateur pseudo aléatoire */
+short roll_dice(){
     short value = rand() % 6 + 1;
     return value;
 }
@@ -33,7 +28,7 @@ void display_gotten_numbers(short *list, int size){
     for (short i = 0; i < size; i++){
         if (list[i] != -1){
             printf("%d", list[i]);
-            if (i != size - 1) printf(", ");
+            if (i < size - 2) printf(", ");
         }
     }
     printf("]\n");
@@ -44,7 +39,7 @@ void keep(short list[], short size){
     for(short i = 0; i < size; i++){
         if (list[i] != -1){
             printf("%d ", list[i]);
-            if (i != size - 1) printf("et ");
+            if (i < size - 2) printf("et ");
         }
     }
 
