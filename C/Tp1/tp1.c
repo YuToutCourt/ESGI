@@ -101,15 +101,15 @@ void somme_multiple(){
     
     // Affichage de la somme
     printf("- %d = ", somme);
-    for(int i = 1; i < nombre; i++){
-        if (i == nombre - 1) printf("%d + %d\n", tableau[i], tableau[i]+1);
+    for(int i = 1; i <= nombre; i++){
+        if(i == nombre) printf("%d", tableau[i]);
         else printf("%d + ", tableau[i]);
     }
 
     // Affichage du multiple
-    printf("- %d! = %d = ", nombre, multiple);
-    for(int i = 1; i < nombre; i++){
-        if (i == nombre - 1) printf("%d * %d\n", tableau[i], tableau[i]+1);
+    printf("\n- %d! = %d = ", nombre, multiple);
+    for(int i = 1; i <= nombre; i++){
+        if(i == nombre) printf("%d", tableau[i]);
         else printf("%d * ", tableau[i]);
     }
 
