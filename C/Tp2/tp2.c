@@ -113,6 +113,7 @@ void suite(){
     un1 = 0.5 * (u0 + 2/u0);
     u0 = un1;
     printf("Le resultat de U[%d] est : %.2f\n", n, u0);
+    printf("Cette suite tant vers le resultat positif de la résolution de l equation [x^2 - 2] qui est : %.2f\n", u0);
 }
 
 int fibonacci(int n){
