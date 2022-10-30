@@ -165,7 +165,7 @@ void dice(){
     // Boucle de jeu sur le nombre de parties
     for (short i = 0; i < nb_games; i++){
 
-        // 
+        // Boucle sur 3 lancer de dés
         for(short r = 0; r < 3; r++){
 
             // Ajout de la valeur obtenue dans le tableau de dés
