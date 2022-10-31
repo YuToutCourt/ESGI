@@ -140,21 +140,21 @@ void the_greatest(){
 
 void suite(){
     int nombre;
-    float somme = 0;
+    float somme = 0.;
     do {
-            do {
-                printf("Entrez le nombre de terme de la suite a calculer n avec n > 0 (0 pour terminer) : ");
-                scanf("%d", &nombre);
-                if(nombre < 0) printf("Erreur, la valeur ne peut pas etre negative. \n");
-            } while (nombre < 0);
+            
+        printf("Entrez le nombre de terme de la suite a calculer n avec n > 0 (0 pour terminer) : ");
+        scanf("%d", &nombre);
+        if(nombre < 0) printf("Erreur, la valeur ne peut pas etre negative. \n");
 
-            if(nombre != 0){
-                for(int i = 1; i <= nombre; i++){
-                    somme += 1. / i;
-                }
-                printf("U%d est : %.4f \n", nombre, somme);
+        else if(nombre != 0){
+            for(int i = 1; i <= nombre; i++){
+                somme += 1. / i;
             }
-            somme = 0;
+            printf("U%d est : %.4f \n", nombre, somme);
+            somme = 0.;
+        }
+
             
     } while (nombre != 0);
 
