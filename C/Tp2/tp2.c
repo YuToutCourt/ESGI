@@ -8,9 +8,13 @@
 
 
 #include "tp2.h"
+#include "menu.h"
 
 
-int main(int argc, char const *argv[]){
+int main(){
+
+    // NE RIEN METTRE DANS LE MAIN !!
+    // Créer un menu qui est l'appelé des fonctions
     
     /*
         __
@@ -21,50 +25,7 @@ int main(int argc, char const *argv[]){
     */
 
     srand(time(NULL));  /* initialise le générateur pseudo aléatoire */
-
-    
-    int n;
-    short choix;
-
-    // Affichage du menu et choix de l'utilisateur
-    do {
-        printf("\n\nChoisissez un exercice : \n");
-        printf("1. Equation du second degre\n");
-        printf("2. Suite Rn\n");
-        printf("3. Fibonacci\n");
-        printf("4. Nombre d'or de Fibonacci\n");
-        printf("5. Dice\n");
-        printf("0. Quitter\n");
-        printf("Votre choix : ");
-        scanf("%hd", &choix);
-        switch (choix)
-        {
-        case 1:
-            equation_second_degre();
-            break;
-        case 2:
-            suite();
-            break;
-        case 3:
-            printf("Entrez la valeur de n : ");
-            scanf("%d", &n);
-            fibonacci(n);
-            break;
-        case 4:
-            nombre_or_fibo();
-            break;
-        case 5:
-            dice();
-            break;
-        case 6:
-            printf("Au revoir !\n");
-            break;
-        default:
-            printf("Choix invalide !\n");
-            break;
-        }
-
-    } while (choix != 0);
+    menu();
 
     return 0;
 }
@@ -96,17 +57,17 @@ void equation_second_degre(){
 
 void suite(){
     int n;
-    float u0 = 2;
-    float un, un1;
+    float u0 = 2.;
+    float un1;
 
     printf("Entrez la valeur de n : ");
     scanf("%d", &n);
 
     // Calcul de la valeur de u(n-1)
     for (int i = 0; i <= n-1; i++){
+        if (i % 10 == 0) printf("U%d = %.2f\n", i, u0);
         un1 = 0.5 * (u0 + 2/u0);
         u0 = un1;
-        if (i % 10 == 0) printf("U%d = %.2f\n", i, u0);
     }
 
     // Calcul de la valeur de U(n)
@@ -116,7 +77,7 @@ void suite(){
     printf("Cette suite tant vers le resultat positif de la résolution de l equation [x^2 - 2] qui est : %.2f\n", u0);
 }
 
-int fibonacci(int n){
+int fibonacci(short n){
 
     int val = n;
     int first = 0, second = 1;
@@ -138,11 +99,11 @@ void nombre_or_fibo(){
     scanf("%d", &n);
 
     for(int i = 1; i <= n; i++){
-        if (i % 5 == 0) printf("O[%d] = %f\n", i, fibonacci(i+1)/fibonacci(i));
+        if (i % 5 == 0) printf("O[%d] = %d\n", i, fibonacci(i+1)/fibonacci(i));
     }
 
-    printf("Le resultat de O[%d] est %f\n", n, fibonacci(n+1)/fibonacci(n));
-    printf("Le nombre d'or est egal a : %f\n", fibonacci(n+1)/fibonacci(n));
+    printf("Le resultat de O[%d] est %d\n", n, fibonacci(n+1)/fibonacci(n));
+    printf("Le nombre d'or est egal a : %d\n", fibonacci(n+1)/fibonacci(n));
 
 }
 
@@ -156,10 +117,10 @@ void dice(){
 
     short nb_games;
     short nb_wins = 0, nb_loses = 0;
-    short nb_dice = 3, nb_roll = 0;
+    short nb_dice = 3;
     
     printf("Entrez le nombre de parties : ");
-    scanf("%d", &nb_games);
+    scanf("%hd", &nb_games);
 
 
     // Boucle de jeu sur le nombre de parties

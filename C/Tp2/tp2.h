@@ -31,11 +31,11 @@ void suite();
 
 /**
  * @brief Fonction qui permet de calculer Fibonacci
- * @param n [int]
+ * @param n [short]
  * 
  * @return unsigned long long int 
  */
-int fibonacci(int n);
+int fibonacci(short n);
 
 /**
  * @brief Fonction qui permet de calculer le nombre d'or de Fibonacci
