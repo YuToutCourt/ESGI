@@ -15,7 +15,7 @@ void TableauDouble_modifier(PtrTableauDouble const  dd, const unsigned taille, c
     // TODO
 }
 
-void TableauDouble_liberer (PtrTableauDouble dd) {
+void TableauDouble_liberer(PtrTableauDouble dd) {
     // TODO
 }
 

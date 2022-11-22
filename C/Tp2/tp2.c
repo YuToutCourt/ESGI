@@ -13,15 +13,12 @@
 
 int main(){
 
-    // NE RIEN METTRE DANS LE MAIN !!
-    // Créer un menu qui est l'appelé des fonctions
-    
     /*
         __
     ___( o)>  (KOINK)
     \ <_. )
     `---'  
-               
+ 
     */
 
     srand(time(NULL));  /* initialise le générateur pseudo aléatoire */
@@ -31,7 +28,7 @@ int main(){
 }
 
 
-void equation_second_degre(){
+float equation_second_degre(){
     float a, b, c;
     float delta;
     float x1, x2;
@@ -46,11 +43,13 @@ void equation_second_degre(){
     else if (delta == 0){
         x1 = -b / (2*a);
         printf("Une solution : x = %.2f\n", x1);
+        return x1;
 
     } else {
         x1 = (-b - sqrt(delta)) / (2*a);
         x2 = (-b + sqrt(delta)) / (2*a);
         printf("Deux solutions : x1 = %.2f et x2 = %.2f\n", x1, x2);
+        return x1;
     }
 }
 
@@ -74,7 +73,7 @@ void suite(){
     un1 = 0.5 * (u0 + 2/u0);
     u0 = un1;
     printf("Le resultat de U[%d] est : %.2f\n", n, u0);
-    printf("Cette suite tant vers le resultat positif de la résolution de l equation [x^2 - 2] qui est : %.2f\n", u0);
+    printf("Cette suite tant vers le resultat positif de la resolution de l equation [x^2 - 2] qui est : %.2f\n", equation_second_degre(1, 0, -2));
 }
 
 int fibonacci(short n){
