@@ -21,7 +21,7 @@
 /**
  * @brief Fonction qui permet de résoudre une équation du second degré
  */
-void equation_second_degre();
+float equation_second_degre();
 
 /**
  * @brief Fonction qui permet de calculer la suite Rn 
@@ -35,7 +35,7 @@ void suite();
  * 
  * @return unsigned long long int 
  */
-int fibonacci(short n);
+signed long long int fibonacci(short n);
 
 /**
  * @brief Fonction qui permet de calculer le nombre d'or de Fibonacci

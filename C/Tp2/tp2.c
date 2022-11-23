@@ -73,37 +73,42 @@ void suite(){
     un1 = 0.5 * (u0 + 2/u0);
     u0 = un1;
     printf("Le resultat de U[%d] est : %.2f\n", n, u0);
+
+    // J'ai pas trop compris le sens de la question, mais j'ai fait ce que je comprennais
     printf("Cette suite tant vers le resultat positif de la resolution de l equation [x^2 - 2] qui est : %.2f\n", equation_second_degre(1, 0, -2));
 }
 
-int fibonacci(short n){
+signed long long int fibonacci(short n){
 
-    int val = n;
-    int first = 0, second = 1;
-    int tmp;
+    // J'utilise signed long long int car le nombre de fibonacci devient trop grand pour un int
+
+    short val = n;
+    signed long long int  first = 0, second = 1;
+    signed long long int  tmp;
 
     while (n--) {
         tmp = first + second;
         first = second;
         second = tmp;
     }
-    printf("Fibonacci de %d est %d : F[%d] = %d\n", val, first, val, first);
+
     return first;
 }
 
-void nombre_or_fibo(){
-
-    int n;
-    printf("Entrez la valeur de n : "); 
+void nombre_or_fibo()
+{
+    int n, i;
+    float fn, fn1, fn2, on;
+    printf("Calcul de la suite definie par O[n]=F[n+1]/F[n] \n");
+    printf("Entrez N :");
     scanf("%d", &n);
-
-    for(int i = 1; i <= n; i++){
-        if (i % 5 == 0) printf("O[%d] = %d\n", i, fibonacci(i+1)/fibonacci(i));
+    for (i = 1; i <= n; i++){
+        fn = fibonacci(i);
+        fn1 = fibonacci(i+1);
+        on = fn1/fn;
+        if (i%5 == 0 || i == 1)  printf("O[%d] = %.2f \n", i, on);
     }
-
-    printf("Le resultat de O[%d] est %d\n", n, fibonacci(n+1)/fibonacci(n));
-    printf("Le nombre d'or est egal a : %d\n", fibonacci(n+1)/fibonacci(n));
-
+    printf("Le resultat de O[%d] = %.2f \n", n, on);
 }
 
 void dice(){

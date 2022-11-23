@@ -35,7 +35,8 @@ void menu(){
         case 3:
             printf("Entrez la valeur de n : ");
             scanf("%d", &n);
-            fibonacci(n);
+            signed long long int val = fibonacci(n);
+            printf("Fibonacci de %d est %lli : F[%d] = %lli\n", n, val, n, val);
             break;
         case 4:
             nombre_or_fibo();
