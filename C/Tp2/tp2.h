@@ -35,7 +35,7 @@ void suite();
  * 
  * @return unsigned long long int 
  */
-signed long long int fibonacci(short n);
+unsigned long long fibonacci(short n);
 
 /**
  * @brief Fonction qui permet de calculer le nombre d'or de Fibonacci

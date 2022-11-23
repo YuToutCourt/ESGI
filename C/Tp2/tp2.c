@@ -78,13 +78,13 @@ void suite(){
     printf("Cette suite tant vers le resultat positif de la resolution de l equation [x^2 - 2] qui est : %.2f\n", equation_second_degre(1, 0, -2));
 }
 
-signed long long int fibonacci(short n){
+unsigned long long fibonacci(short n){
 
-    // J'utilise signed long long int car le nombre de fibonacci devient trop grand pour un int
+    // J'utilise unsigned long long car le nombre de fibonacci devient trop grand pour un int
 
     short val = n;
-    signed long long int  first = 0, second = 1;
-    signed long long int  tmp;
+    unsigned long long  first = 0, second = 1;
+    unsigned long long tmp;
 
     while (n--) {
         tmp = first + second;
