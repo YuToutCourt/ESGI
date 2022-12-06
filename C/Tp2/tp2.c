@@ -118,6 +118,7 @@ void dice(){
     short value_we_need[3] = {1, 2, 4};
     short value_gotten[3] = {-1, -1, -1};
     short index_value_gotten = 0;
+    short nb_value_gotten;
 
     short nb_games;
     short nb_wins = 0, nb_loses = 0;
@@ -149,15 +150,22 @@ void dice(){
                 display_gotten_numbers(value_gotten, 3);
             }
             else {
+                nb_value_gotten = 0;
                 for (short j = 0; j < 3; j++){
                     // Si la valeur recherchée est présente dans le tableau de dés et qu'elle n'a pas déjà été obtenue
                     if (in(value_we_need[j], dices, nb_dice) && !in(value_we_need[j], value_gotten, 3)){
                         value_gotten[index_value_gotten] = value_we_need[j];
                         index_value_gotten++;
+                        nb_value_gotten++;
                     }
                 }
-                keep(value_gotten, nb_dice);
-                nb_dice -= index_value_gotten;
+                if(nb_value_gotten == 0) printf("Je ne garde rien ");
+
+                else{
+                    keep(value_gotten, 3);
+                    nb_dice -= index_value_gotten;
+                }
+                
                 display_gotten_numbers(value_gotten, 3);
             }
 
@@ -177,7 +185,7 @@ void dice(){
         printf("\n\n\n");
         nb_dice = 3;
         index_value_gotten = 0;
-        for (short j = 0; j < 3; j++) value_gotten[j] = -1;
+        memset(value_gotten, -1, 3);
     }
 
     printf("Vous avez joue %d parties, %d gagnees et %d perdue(s) soit %.2f%% de gain\n", nb_games, nb_wins, nb_loses, (float)nb_wins / nb_games * 100);

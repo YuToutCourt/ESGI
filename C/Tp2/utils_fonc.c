@@ -31,10 +31,9 @@ short roll_dice(){
 void display_gotten_numbers(short *list, int size){
     printf("[");    
     for (short i = 0; i < size; i++){
-        if (list[i] != -1){
-            printf("%d", list[i]);
-            if (i < size - 2) printf(", ");
-        }
+        if (list[i] == -1) continue;
+        if (i > 0 && i == size-2 ) printf(", ");
+        printf("%d", list[i]);
     }
     printf("]\n");
 }
@@ -42,10 +41,11 @@ void display_gotten_numbers(short *list, int size){
 void keep(short list[], short size){
     printf("Je garde ");
     for(short i = 0; i < size; i++){
-        if (list[i] != -1){
-            printf("%d ", list[i]);
-            if (i < size - 2) printf("et ");
-        }
+        if(list[i] == -1) continue;
+        if (i > 0) printf("et ");
+        printf("%d ", list[i]);
+        
+        
     }
 
 }
