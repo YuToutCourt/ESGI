@@ -47,7 +47,7 @@ def somme_facotrielle():
 
         somme, factorielle = 0, 1
         number_used_in_str = []
-
+        
         # Calcul de la somme et de la factorielle
         for i in range(1, number + 1):
             somme += i

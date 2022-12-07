@@ -6,3 +6,6 @@
 
 # Ignore all .pdf files
 *.pdf
+
+*.pyc
+__pycache__/
