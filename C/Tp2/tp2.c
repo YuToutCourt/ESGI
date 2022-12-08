@@ -153,7 +153,7 @@ void dice(){
                 nb_value_gotten = 0;
                 for (short j = 0; j < 3; j++){
                     // Si la valeur recherchée est présente dans le tableau de dés et qu'elle n'a pas déjà été obtenue
-                    if (in(value_we_need[j], dices, nb_dice) && !in(value_we_need[j], value_gotten, 3)){
+                    if (in(value_we_need[j], dices, 3) && !in(value_we_need[j], value_gotten, 3)){
                         value_gotten[index_value_gotten] = value_we_need[j];
                         index_value_gotten++;
                         nb_value_gotten++;
