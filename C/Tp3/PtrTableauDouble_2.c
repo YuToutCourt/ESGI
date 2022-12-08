@@ -26,6 +26,7 @@ void TableauDouble_construire(PtrTableauDouble* ptd, int taille) {
 
     (*ptd)->a_taille = taille;
 
+    // memset((*ptd)->a_tab, 0, taille * sizeof(double));
     for (int i = 0; i < taille; i++) (*ptd)->a_tab[i] = 0;
 }
 
