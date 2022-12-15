@@ -3,6 +3,20 @@
 
 # ESGI - TP
 
-Hello, this is the repository for TP of the ESGI
+## For C 
 
+```bash
+cd tpx
+make all
+./tpx
+```
 
+## For Python
+
+```bash
+cd tpx
+python3 tpx.py
+# or
+pip install -r requirements.txt
+python3 tpx.py
+```
