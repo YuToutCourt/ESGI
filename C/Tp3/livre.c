@@ -1,12 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+/*****************************************************
+* \file    livre.c
+* \author  Yohann MALEY
+* \date    15 décembre 2022
+* \brief   Contient le code des fonctions du livre
+* \version 1.0
+******************************************************/
 
-typedef struct {
-    char *nom;
-    char *auteur;
-    char *editeur;
-    char code_barre[13];
-} Livre;
+#include "livre.h"
 
 
 void Livre_creer(Livre *livre, char *nom, char *auteur, char *editeur, char *code_barre) {
@@ -43,7 +43,7 @@ void Livre_afficher(Livre *livre) {
     printf("--------------------\n");
 }
 
-int main() {
+int C_3() {
     Livre livre;
     Livre_creer(&livre, "Le petit prince", "Antoine de Saint-Exupéry", "Gallimard", "9782070413095");
     Livre_afficher(&livre);
