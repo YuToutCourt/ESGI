@@ -1,5 +1,11 @@
-from menu import menu
+import platform
+
+from main_menu import *
 
 
 if __name__ == "__main__":
-    menu()
+    
+    if platform.system() == 'Windows':
+        menu_windows()
+    else:
+        menu_linux()

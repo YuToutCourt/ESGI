@@ -1,4 +1,5 @@
 import math
+from functools import cache
 
 def type_predifinis():
     """
@@ -18,7 +19,6 @@ def type_predifinis():
         if input("Voulez-vous continuer ? (o/n) : ") == 'n':
             break
 
-
 def surface_trapeze():
     """
     Script permettant de calculer la surface d'un trapèze
@@ -34,7 +34,6 @@ def surface_trapeze():
 
     # Affichage de la surface
     print(f"La surface du trapèze est de {surface} m")
-
 
 def somme_facotrielle():
     """
@@ -80,8 +79,6 @@ def arbre_noel():
     print("="*hauteur + "*" + "="*hauteur)
     print("="*(hauteur-1) + "***" + "="*(hauteur-1))
 
-
-
 def math_():
     """
     Script permettant de saisir un entier au clavier et d'afficher :
@@ -95,6 +92,9 @@ def math_():
     print(f"sin({entier}) = {math.sin(entier)}")
     print(f"cos({entier}) = {math.cos(entier)}")
 
+@cache
+def factorial(n):
+    return math.factorial(n)
 
 def f1(x: float, n: int) -> float:
     """
@@ -104,9 +104,7 @@ def f1(x: float, n: int) -> float:
 
     :return: float
     """
-    return x ** n / math.factorial(n)
-
-
+    return x ** n / factorial(n)
 
 def Res(x: float, N: int) -> float:
     """
@@ -122,8 +120,6 @@ def Res(x: float, N: int) -> float:
         somme += f1(x, n)
     return somme
 
-
-
 def U(n: int) -> float:
     """
     Calcul de la suite U
@@ -135,7 +131,7 @@ def U(n: int) -> float:
     
     # Calcul des termes de la suite
     for i in range(1, n+1):
-        u += 1 / math.factorial(i)
+        u += 1 / factorial(i)
     
     return u
 
@@ -150,34 +146,23 @@ def V(n: int) -> float:
 
     # Calcul des termes de la suite
     for i in range(1, n+1):
-        v += U(i) + 1 / (i * math.factorial(i))
+        v += U(i) + 1 / (i * factorial(i))
     
     return v
 
-# Variable globale contenant les valeurs déjà calculées de la factorielle pour éviter de les recalculer
-fact = [1]
+
 def tierce():
     """
     Calcul de la probabilité de gagner au tiercé, quarté, quinté...
     """
-
-    # Calcul de la factorielle d'un nombre entier en utilisant la programmation dynamique
-    def factoriel(n: int) -> int:
-        # Si la factorielle a déjà été calculée, on la retourne directement
-        if n < len(fact):
-            return fact[n]
-        
-        # Sinon, on calcule la factorielle et on l'ajoute au tableau
-        res = n *  math.factorial(n-1)
-        fact.append(res)
-        return res
-
     # Demande du nombre de chevaux partants et de chevaux joués à l'utilisateur
     n = int(input("Nombre de chevaux partants : "))
     p = int(input("Nombre de chevaux joués : "))
 
-    X = factoriel(n) // factoriel(n-p)
-    Y = factoriel(n) // (factoriel(p) * factoriel(n-p))
+    n, np = factorial(n), factorial(n-p)
+
+    X =  n // np
+    Y =  n // (factorial(p) *  np)
     
     # Affichage des chances de gagner
     print(f"Une chance sur {int(X)} de gagner dans l'ordre")
