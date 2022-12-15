@@ -23,7 +23,7 @@ def menu_windows():
 
 
         execute_function(selected_option)
-        _ = input("Appuyer sur une touche pour continuer...")
+        input("Appuyer sur une touche pour continuer...")
 
 
 
