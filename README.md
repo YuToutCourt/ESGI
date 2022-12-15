@@ -15,8 +15,6 @@ make all
 
 ```bash
 cd tpx
-python3 tpx.py
-# or
 pip install -r requirements.txt
 python3 tpx.py
 ```

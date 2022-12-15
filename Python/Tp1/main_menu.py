@@ -1,6 +1,5 @@
 
 import sys
-import importlib
 
 from all_exo import *
 
@@ -13,7 +12,7 @@ def menu_windows():
     try:
         from consolemenu import SelectionMenu
     except ImportError:
-        importlib.import_module('pip').main(['install', 'console-menu'])
+        print("Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt'")
 
     while True:
         menu = SelectionMenu(OPTIONS[:len(OPTIONS) - 1])
@@ -31,7 +30,7 @@ def menu_linux():
     try:
         from simple_term_menu import TerminalMenu
     except ImportError:
-        importlib.import_module('pip').main(['install', 'simple_term_menu'])
+        print("Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt'")
 
     menu = TerminalMenu(OPTIONS)
     while True:
