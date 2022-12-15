@@ -1,6 +1,8 @@
 import math
 from functools import cache
 
+__all__ = ["type_predifinis", "surface_trapeze", "somme_facotrielle", "arbre_noel", "math_", "Res", "U", "V", "tierce"]
+
 def type_predifinis():
     """
     Script permettant de rentrer 1 caractères et un entier
