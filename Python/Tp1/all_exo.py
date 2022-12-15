@@ -1,6 +1,7 @@
 import math
 from functools import cache
 
+# Define a list of public function of that module, available by import *
 __all__ = ["type_predifinis", "surface_trapeze", "somme_facotrielle", "arbre_noel", "math_", "Res", "U", "V", "tierce"]
 
 def type_predifinis():

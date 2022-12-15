@@ -3,10 +3,11 @@ import sys
 
 from all_exo import *
 
+# Define a list of public function of that module, available by import *
 __all__ = ["menu_windows", "menu_linux"]
 
-OPTIONS = ["Type predifinis", "Surface d'un trapèze", "Somme et factorielle d'un nombre", "Arbre de noël", "math", "Res(X, N)", "Suite", "Tierce", "Quitter"]
 
+OPTIONS = ["Type predifinis", "Surface d'un trapèze", "Somme et factorielle d'un nombre", "Arbre de noël", "math", "Res(X, N)", "Suite", "Tierce", "Quitter"]
 
 def menu_windows():
     try:
