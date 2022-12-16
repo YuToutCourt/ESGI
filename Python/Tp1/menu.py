@@ -13,7 +13,8 @@ def menu_windows():
     try:
         from consolemenu import SelectionMenu
     except ImportError:
-        print("Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt'")
+        print(">> Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt' <<")
+        sys.exit()
 
     while True:
         menu = SelectionMenu(OPTIONS[:len(OPTIONS) - 1])
@@ -31,7 +32,8 @@ def menu_linux():
     try:
         from simple_term_menu import TerminalMenu
     except ImportError:
-        print("Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt'")
+        print(">> Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt' <<")
+        sys.exit()
 
     menu = TerminalMenu(OPTIONS)
     while True:

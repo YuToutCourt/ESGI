@@ -96,7 +96,7 @@ def math_():
     print(f"cos({entier}) = {math.cos(entier)}")
 
 @cache
-def factorial(n):
+def factorial(n:int) -> int:
     return math.factorial(n)
 
 def f1(x: float, n: int) -> float:

@@ -1,6 +1,6 @@
 import platform
 
-from main_menu import *
+from menu import *
 
 
 if __name__ == "__main__":
