@@ -49,6 +49,13 @@ def somme_facotrielle():
 
         somme, factorielle = 0, math.factorial(number)
         number_used_in_str = []
+
+        # Un autre moyen de faire la somme et la factorielle mais on utilise sum() et listcomprehension ce qui nous 
+        # fait boucler 2 fois sur la liste des nombres, ce qui n'est pas très optimisé :)
+        
+        # somme = sum(range(1, number + 1))
+        # factorielle = math.factorial(number)
+        # numbers_used_in_str = [str(i) for i in range(1, number + 1)]
         
         # Calcul de la somme et de la factorielle
         for i in range(1, number + 1):
