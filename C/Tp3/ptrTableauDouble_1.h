@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #ifndef PTRTABLEAUDOUBLE_1_H
 #define PTRTABLEAUDOUBLE_1_H

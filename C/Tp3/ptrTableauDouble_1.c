@@ -18,11 +18,13 @@ void TableauDouble_construire(PtrTableauDouble1* ptd, int taille) {
         exit(1);
     }
 
-    for (int i = 0; i < taille; i++) (*ptd)[i] = 0;
+    // for (int i = 0; i < taille; i++) (*ptd)[i] = 0;
+
+    memset(*ptd, 0, taille * sizeof(double));
 }
 
 void TableauDouble_afficher(PtrTableauDouble1 ptd, int taille) {
-    for (int i = 0; i < taille; i++) printf("%f ", ptd[i]);
+    for (unsigned i = 0; i < taille; i++) printf("%f ", ptd[i]);
     printf("\n");
 }
 

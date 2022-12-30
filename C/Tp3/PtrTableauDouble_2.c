@@ -27,12 +27,12 @@ void TableauDouble_construire2(PtrTableauDouble2* ptd, int taille) {
 
     (*ptd)->a_taille = taille;
 
-    // memset((*ptd)->a_tab, 0, taille * sizeof(double));
-    for (int i = 0; i < taille; i++) (*ptd)->a_tab[i] = 0;
+    memset((*ptd)->a_tab, 0, taille * sizeof(double));
+    // for (int i = 0; i < taille; i++) (*ptd)->a_tab[i] = 0;
 }
 
 void TableauDouble_afficher2(PtrTableauDouble2 ptd) {
-    for (int i = 0; i < ptd->a_taille; i++) printf("%f ", ptd->a_tab[i]);
+    for (unsigned i = 0; i < ptd->a_taille; i++) printf("%f ", ptd->a_tab[i]);
     printf("\n");
 }
 
