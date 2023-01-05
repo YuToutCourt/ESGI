@@ -18,20 +18,21 @@ void Livre_creer(Livre *livre, char *nom, char *auteur, char *editeur, char *cod
 
 
 void Livre_set(Livre *livre, char *attribut, char *valeur) {
-    if (attribut == "nom") livre->nom = valeur;
-    else if (attribut == "auteur") livre->auteur = valeur;
-    else if (attribut == "editeur") livre->editeur = valeur;
-    else if (attribut == "code_barre") {
+    if (strcmp(attribut, "nom") == 0) livre->nom = valeur;
+    else if (strcmp(attribut, "auteur") == 0) livre->auteur = valeur;
+    else if (strcmp(attribut, "editeur") == 0) livre->editeur = valeur;
+    else if (strcmp(attribut, "code_barre") == 0) {
         for (int i = 0; i < 13; i++) livre->code_barre[i] = valeur[i];
     }
 }
 
 char *Livre_get(Livre *livre, char *attribut) {
-    if (attribut == "nom") return livre->nom;
-    else if (attribut == "auteur") return livre->auteur;
-    else if (attribut == "editeur") return livre->editeur;
-    else if (attribut == "code_barre") return livre->code_barre;
+    if (strcmp(attribut, "nom") == 0) return livre->nom;
+    else if (strcmp(attribut, "auteur") == 0) return livre->auteur;
+    else if (strcmp(attribut, "editeur") == 0) return livre->editeur;
+    else if (strcmp(attribut, "code_barre") == 0) return livre->code_barre;
 }
+
 
 
 void Livre_afficher(Livre *livre) {
