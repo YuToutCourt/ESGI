@@ -1,3 +1,5 @@
+"""Auteur: Yohann Maley"""
+
 import math
 from functools import cache
 

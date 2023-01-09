@@ -1,3 +1,4 @@
+"""Auteur: Yohann Maley"""
 
 import sys
 

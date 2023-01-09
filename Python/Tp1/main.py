@@ -1,3 +1,5 @@
+"""Auteur: Yohann Maley"""
+
 import platform
 
 from menu import menu_windows, menu_linux
