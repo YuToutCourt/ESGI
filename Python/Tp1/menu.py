@@ -76,7 +76,6 @@ class Menu:
             7: tierce,
             8: sys.exit
         }
-        try:
+
+        if options.get(choix) is not None:
             options[choix]()
-        except KeyError:
-            print("Choix invalide")
