@@ -1,7 +1,8 @@
 """Auteur: Yohann Maley"""
 
-import math
 from functools import cache
+from math import factorial, log, sin, cos
+
 
 # Define a list of public function of that module, available by import *
 __all__ = ["type_predifinis", "surface_trapeze", "somme_facotrielle", "arbre_noel", "math_", "Res", "U", "V", "tierce"]
@@ -49,7 +50,7 @@ def somme_facotrielle():
 
         number = int(input("Entrer un entier positif : "))
 
-        somme, factorielle = 0, math.factorial(number)
+        somme, factorielle = 0, factorial(number)
         number_used_in_str = []
 
         # Un autre moyen de faire la somme et la factorielle mais on utilise sum() et listcomprehension ce qui nous 
@@ -100,13 +101,13 @@ def math_():
     """
     entier = int(input("Entrer un entier : "))
 
-    print(f"log({entier}) = {math.log(entier)}")
-    print(f"sin({entier}) = {math.sin(entier)}")
-    print(f"cos({entier}) = {math.cos(entier)}")
+    print(f"log({entier}) = {log(entier)}")
+    print(f"sin({entier}) = {sin(entier)}")
+    print(f"cos({entier}) = {cos(entier)}")
 
 @cache
 def factorial(n:int) -> int:
-    return math.factorial(n)
+    return factorial(n)
 
 def f1(x: float, n: int) -> float:
     """

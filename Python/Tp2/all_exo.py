@@ -41,13 +41,13 @@ def jeu_allumettes():
         print("Il reste", nb_allumettes, "allumettes")
         if turn % 2 == 0:
             nb_remove = randint(1, 3)
-            print(f"{'|'*nb_allumettes} L'ordinateur enlève {nb_remove} allumettes")
+            print(f"{'📍'*nb_allumettes} L'ordinateur enlève {nb_remove} allumettes")
         else:
             nb_remove = int(input("Combien d'allumettes prenez-vous ? "))
             if nb_remove > 3 or nb_remove < 1:
                 print("Vous devez prendre entre 1 et 3 allumettes")
             
-            print(f"{'|'*nb_allumettes} {pseudo} enlève {nb_remove} allumettes")
+            print(f"{'📍'*nb_allumettes} {pseudo} enlève {nb_remove} allumettes")
 
         nb_allumettes = nb_allumettes - nb_remove
         turn += 1
