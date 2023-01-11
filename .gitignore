@@ -9,3 +9,7 @@
 
 *.pyc
 __pycache__/
+
+# Ignore bin and txt files
+.bin
+.txt
