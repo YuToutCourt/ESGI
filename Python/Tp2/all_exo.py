@@ -17,18 +17,8 @@ def calcul_surface():
         S = U0 + S
         n = n + 1
 
-    S = 0
-    L = a
-    while L < b:
-        S = S + L * L * p
-        L = L + p
-
-    S = 0
-    L = a
-    while L-p >= a:
-        S = p*()
-    # TODO : demander au prof j'ai pas compris
-
+    print(f"Calcul de l'intégrale de la fonction y = x * x avec {a} <= x < {b} et p = {p}")
+    print(f"La surface est de {S}")
 
 def jeu_allumettes():
     """
