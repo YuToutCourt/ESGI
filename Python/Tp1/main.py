@@ -1,13 +1,11 @@
 """Auteur: Yohann Maley"""
 
-import platform
-
-from menu import menu_windows, menu_linux
+from menu import Menu
 
 if __name__ == "__main__":
     
-    # On vérifie le système d'exploitation pour afficher le menu correspondant
-    if platform.system() == 'Windows':
-        menu_windows()
-    else:
-        menu_linux()
+    OPTIONS = ["Type predifinis", "Surface d'un trapèze", "Somme et factorielle d'un nombre", "Arbre de noël", 
+            "math", "Res(X, N)", "Suite", "Tierce", "Quitter"]
+
+    menu = Menu(OPTIONS)
+    menu.show()
