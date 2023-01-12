@@ -25,23 +25,47 @@ def jeu_allumettes():
     Fonction qui simule le jeu des allumettes
     """
     pseudo = input("Entrer votre nom : ")
-    nb_allumettes = int(input("Entrer le nombre d'allumettes de départ : "))
-    turn = 0
+    nb_allumettes = input("Entrer le nombre d'allumettes de départ : ")
+
+    if not nb_allumettes.isdigit():
+        print("Le nombre d'allumettes doit être un entier")
+        return
+
+    nb_allumettes = int(nb_allumettes)
+    
+    turn = randint(0, 1) # choisir aléatoirement le joueur de départ (0 = ordinateur, 1 = joueur)
     while nb_allumettes > 0:
-        print("Il reste", nb_allumettes, "allumettes")
-        if turn % 2 == 0:
+        print(f"Il reste {'📍'*nb_allumettes} allumettes\n")
+
+        if turn == 0: # tour de l'ordi
             nb_remove = randint(1, 3)
             print(f"{'📍'*nb_allumettes} L'ordinateur enlève {nb_remove} allumettes")
+            turn = 1
+
         else:
-            nb_remove = int(input("Combien d'allumettes prenez-vous ? "))
-            if nb_remove > 3 or nb_remove < 1:
-                print("Vous devez prendre entre 1 et 3 allumettes")
+            while True:
+                nb_remove = input("Combien d'allumettes prenez-vous ? ")
+
+                if not nb_remove.isdigit():
+                    print("Vous devez prendre un nombre d'allumettes")
+                    continue
+                
+                nb_remove = int(nb_remove)
+                
+                if nb_remove > 3 or nb_remove < 1:
+                    print("Vous devez prendre entre 1 et 3 allumettes")
+                    continue
+
+                else : break
             
             print(f"{'📍'*nb_allumettes} {pseudo} enlève {nb_remove} allumettes")
-
-        nb_allumettes = nb_allumettes - nb_remove
-        turn += 1
-    # TODO : To finish
+            turn = 0
+        nb_allumettes -= nb_remove
+    
+    if turn == 1:
+        print(f"{pseudo} a gagné !\nL'ordinateur a perdu !")
+    else:
+        print(f"L'ordinateur a gagné !\n{pseudo} a perdu !")
 
 def fichiers():
     nombres = list(map(int, input("Entrer une liste de nombres séparés par des espaces : ").split()))
@@ -83,7 +107,6 @@ def fichiers():
     read("BDD.bin", binary=True)
     create("BDD.txt", nombres, binary=False)
     read("BDD.txt", binary=False)
-
 
 def livre():
 
@@ -132,3 +155,6 @@ def livre():
     roman1.modifier_livre("Bocchi the Rock", "Aki Hamaji", "Doki", "978-3-7580-7075-2", "Seinen", "Gotou Hitori est une lycéenne qui a commencé à apprendre à jouer de la guitare parce qu'elle rêve de faire partie d'un groupe, mais elle est tellement timide qu'elle ne s'est pas fait un seul ami. Cependant, son rêve pourrait devenir réalité après avoir rencontré Ijichi Nijika, une fille qui joue de la batterie et cherche un nouveau guitariste pour son groupe.")
     roman1.afficher_livre()
 
+
+
+jeu_allumettes()
