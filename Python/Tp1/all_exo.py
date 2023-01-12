@@ -2,7 +2,6 @@
 
 import matplotlib.pyplot as plt
 
-from functools import cache
 from math import factorial, log, sin, cos
 
 
@@ -144,9 +143,6 @@ def math_():
     print(f"sin({entier}) = {sin(entier)}")
     print(f"cos({entier}) = {cos(entier)}")
 
-@cache
-def factorial_(n:int) -> int:
-    return factorial(n)
 
 def f1(x: float, n: int) -> float:
     """
@@ -166,7 +162,9 @@ def Res(x: float, N: int) -> float:
 
     :return: float
     """
-    return sum(f1(x, n) for n in range(1, N+1))
+    # formule mathématique pour la somme de la suite géométrique de raison x et de premier terme 1/0!
+    return (1 - x**(N+1)) / (1 - x)
+    # return sum(f1(x, n) for n in range(1, N+1)) Solution pas optimisée
 
 def U(n: int) -> float:
     """
@@ -175,7 +173,12 @@ def U(n: int) -> float:
 
     :return: float
     """
-    return sum(1 / factorial(i) for i in range(1, n+1))
+    somme = 1
+    fact = 1
+    for i in range(1, n+1):
+        fact *= i
+        somme += 1/fact
+    return somme
 
 def V(n: int) -> float:
     """
@@ -184,7 +187,7 @@ def V(n: int) -> float:
 
     :return: float
     """
-    return sum(U(i) for i in range(1, n+1))
+    return sum(1/factorial(i) for i in range(1,n+1))+1/(n*factorial(n))
 
 
 def tierce():
