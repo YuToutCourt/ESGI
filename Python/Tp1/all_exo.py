@@ -1,5 +1,7 @@
 """Auteur: Yohann Maley"""
 
+import matplotlib.pyplot as plt
+
 from functools import cache
 from math import factorial, log, sin, cos
 
@@ -56,6 +58,11 @@ def surface_trapeze():
 
     # Affichage de la surface
     print(f"La surface du trapèze est de {surface} m")
+
+    points = [[0, 0], [a/3, h], [(a+2)/3, h], [a, 0], [(a+2)/3, 0], [(a+2)/3, h], [(a+2)/3, 0], [a/3, 0], [a/3, h], [a/3, 0], [0, 0]]
+
+    plt.plot(*zip(*points))
+    plt.show()
 
 def somme_facotrielle():
     """
