@@ -16,7 +16,17 @@ def type_predifinis():
     while True:
         # Saisie des variables
         caractere = input("Entrer un caractère : ")
-        entier = int(input("Entrer un entier : "))
+
+        if not caractere.isalpha() and len(caractere) == 1:
+            print("Erreur, vous n'avez pas entré un caractère")
+            continue
+        
+        entier = input("Entrer un entier : ")
+        if not entier.isdigit():
+            print("Erreur, vous n'avez pas entré un entier")
+            continue 
+
+        entier = int(entier)
 
         # Affichage des variables
         print(f'{caractere} vaut {ord(caractere)}')
@@ -31,9 +41,15 @@ def surface_trapeze():
     """
     
     # Saisie des variables
-    a = int(input("Entrer la longueur du côté a : "))
-    b = int(input("Entrer la longueur du côté b : "))
-    h = int(input("Entrer la hauteur h : "))
+    a = input("Entrer la longueur du côté a : ")
+    b = input("Entrer la longueur du côté b : ")
+    h = input("Entrer la hauteur h : ")
+
+    if not all([a.isdigit(), b.isdigit(), h.isdigit()]):
+        print("Erreur, vous n'avez pas entré un entier")
+        return
+
+    a, b, h = int(a), int(b), int(h)
 
     # Calcul de la surface
     surface = (a + b) * h * 0.5
@@ -48,7 +64,13 @@ def somme_facotrielle():
 
     while True:
 
-        number = int(input("Entrer un entier positif : "))
+        number = input("Entrer un entier positif : ")
+
+        if not number.isdigit():
+            print("Erreur, vous n'avez pas entré un entier")
+            continue
+
+        number = int(number)
 
         somme, factorielle = 0, factorial(number)
         number_used_in_str = []
@@ -82,7 +104,13 @@ def arbre_noel():
     """
 
     # Saisie de la hauteur de l'arbre
-    hauteur = int(input("Hauteur de l'arbre : "))
+    hauteur = input("Hauteur de l'arbre : ")
+
+    if not hauteur.isdigit():
+        print("Erreur, vous n'avez pas entré un entier")
+        return
+
+    hauteur = int(hauteur)
 
     # Dessin de l'arbre entouré de =
     for i in range(hauteur):
@@ -99,7 +127,11 @@ def math_():
         • sinus de l’entier
         • cosinus de l’entier
     """
-    entier = int(input("Entrer un entier : "))
+    entier = input("Entrer un entier : ")
+
+    if not entier.isdigit():
+        print("Erreur, vous n'avez pas entré un entier")
+        return
 
     print(f"log({entier}) = {log(entier)}")
     print(f"sin({entier}) = {sin(entier)}")
@@ -169,8 +201,14 @@ def tierce():
     Calcul de la probabilité de gagner au tiercé, quarté, quinté...
     """
     # Demande du nombre de chevaux partants et de chevaux joués à l'utilisateur
-    n = int(input("Nombre de chevaux partants : "))
-    p = int(input("Nombre de chevaux joués : "))
+    n = input("Nombre de chevaux partants : ")
+    p = input("Nombre de chevaux joués : ")
+
+    if not all([n.isdigit(), p.isdigit()]):
+        print("Erreur, vous n'avez pas entré un entier")
+        return
+
+    n, p = int(n), int(p)
 
     n, np = factorial(n), factorial(n-p)
 
