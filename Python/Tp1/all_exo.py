@@ -17,7 +17,7 @@ def type_predifinis():
         # Saisie des variables
         caractere = input("Entrer un caractère : ")
 
-        if not caractere.isalpha() and len(caractere) == 1:
+        if not caractere.isalpha() or len(caractere) > 1:
             print("Erreur, vous n'avez pas entré un caractère")
             continue
         

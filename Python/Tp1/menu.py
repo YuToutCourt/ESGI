@@ -10,14 +10,26 @@ class Menu:
         Initializes the Menu class with a list of options to be displayed in the menu.
         Also gets the operating system type.
         """
-        self.os = sys.platform
-        self.options = options
+        self.__os = sys.platform
+        self.__options = options
+
+    def __get_os(self):
+        return self.__os
+
+    def __set_os(self, os):
+        self.__os = os
+
+    def __get_options(self):
+        return self.__options
+
+    def __set_options(self, options):
+        self.__options = options
     
     def handle_menu_choice(self):
         """
         Handles menu choice, by calling the appropriate menu function based on the operating system.
         """
-        if self.os == "win32":
+        if self.__get_os() == "win32":
             return self.menu_windows()
         else :
             return self.menu_linux()
@@ -38,7 +50,7 @@ class Menu:
             print(">> Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt' <<")
             sys.exit()
 
-        menu = SelectionMenu(self.options[:len(self.options) - 1])
+        menu = SelectionMenu(self.__get_options()[:len(self.__get_options()) - 1])
         while True:
             menu.show()
             selected_option = menu.selected_option
@@ -56,7 +68,7 @@ class Menu:
             print(">> Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt' <<")
             sys.exit()
 
-        menu = TerminalMenu(self.options)
+        menu = TerminalMenu(self.__options)
         while True:
             choix = menu.show()
             self.execute_function(choix)
