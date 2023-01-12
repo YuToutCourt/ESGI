@@ -110,21 +110,45 @@ def livre():
 
     class Livre:
         def __init__(self, nom:str, auteur:str, maison_edition:str, code_barre:str):
-            self.nom = nom
-            self.auteur = auteur
-            self.maison_edition = maison_edition
-            self.code_barre = code_barre
+            self.__nom = nom
+            self.__auteur = auteur
+            self.__maison_edition = maison_edition
+            self.__code_barre = code_barre
+
+        def __get_nom(self):
+            return self.__nom
+
+        def __get_auteur(self):
+            return self.__auteur
+
+        def __get_maison_edition(self):
+            return self.__maison_edition
+
+        def __get_code_barre(self):
+            return self.__code_barre
+
+        def __set_nom(self, nom:str):
+            self.__nom = nom
+        
+        def __set_auteur(self, auteur:str):
+            self.__auteur = auteur
+
+        def __set_maison_edition(self, maison_edition:str):
+            self.__maison_edition = maison_edition
+
+        def __set_code_barre(self, code_barre:str):
+            self.__code_barre = code_barre
 
         
         def modifier_livre(self, nom:str, auteur:str, maison_edition:str, code_barre:str):
-            self.nom = nom
-            self.auteur = auteur
-            self.maison_edition = maison_edition
-            self.code_barre = code_barre
+            self.__set_nom(nom)
+            self.__set_auteur(auteur)
+            self.__set_maison_edition(maison_edition)
+            self.__set_code_barre(code_barre)
 
         def __str__(self) -> str:
-            return f"Nom : {self.nom}\nAuteur : {self.auteur}\nMaison d'édition : {self.maison_edition}\nCode barre : {self.code_barre}"
-
+            return f"Nom : {self.__get_nom()}\nAuteur : {self.__get_auteur()}\nMaison d'édition : {self.__get_maison_edition()}\nCode barre : {self.__get_code_barre()}"
+        
         def afficher_livre(self):
             print(self)   
 
@@ -138,17 +162,29 @@ def livre():
     class Roman(Livre):
         def __init__(self, nom: str, auteur: str, maison_edition: str, code_barre: str, type_roman:str, description:str):
             super().__init__(nom, auteur, maison_edition, code_barre)
-            self.type_roman = type_roman
-            self.description = description
+            self.__type_roman = type_roman
+            self.__description = description
         
+        def __get_type_roman(self):
+            return self.__type_roman
+
+        def __get_description(self):
+            return self.__description
+
+        def __set_type_roman(self, type_roman:str):
+            self.__type_roman = type_roman
+
+        def __set_description(self, description:str):
+            self.__description = description
+
 
         def modifier_livre(self, nom: str, auteur: str, maison_edition: str, code_barre: str, type_roman:str, description:str):
             super().modifier_livre(nom, auteur, maison_edition, code_barre)
-            self.type_roman = type_roman
-            self.description = description
+            self.__set_type_roman(type_roman)
+            self.__set_description(description)
 
         def __str__(self) -> str:
-            return super().__str__() + f"\nType de roman : {self.type_roman}\nDescription : {self.description}"
+            return super().__str__() + f"\nType de roman : {self.__get_type_roman()}\nDescription : {self.__get_description()}"
 
         def afficher_livre(self):
             print(self)
