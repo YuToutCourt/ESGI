@@ -138,7 +138,7 @@ def math_():
     print(f"cos({entier}) = {cos(entier)}")
 
 @cache
-def factorial(n:int) -> int:
+def factorial_(n:int) -> int:
     return factorial(n)
 
 def f1(x: float, n: int) -> float:
@@ -159,11 +159,7 @@ def Res(x: float, N: int) -> float:
 
     :return: float
     """
-    somme = 0
-    # Calcul de la somme de f1(x,n) pour n allant de 1 à N
-    for n in range(1, N+1):
-        somme += f1(x, n)
-    return somme
+    return sum(f1(x, n) for n in range(1, N+1))
 
 def U(n: int) -> float:
     """
@@ -172,13 +168,7 @@ def U(n: int) -> float:
 
     :return: float
     """
-    u = 1
-    
-    # Calcul des termes de la suite
-    for i in range(1, n+1):
-        u += 1 / factorial(i)
-    
-    return u
+    return sum(1 / factorial(i) for i in range(1, n+1))
 
 def V(n: int) -> float:
     """
@@ -187,13 +177,7 @@ def V(n: int) -> float:
 
     :return: float
     """
-    v = 0
-
-    # Calcul des termes de la suite
-    for i in range(1, n+1):
-        v += U(i) + 1 / (i * factorial(i))
-    
-    return v
+    return sum(U(i) for i in range(1, n+1))
 
 
 def tierce():

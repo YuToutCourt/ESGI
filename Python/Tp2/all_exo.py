@@ -80,10 +80,8 @@ def fichiers():
         mode = "wb" if binary else "w"
         with open(file_name, mode) as f:
             for d in data:
-                if binary:
-                    f.write(d.to_bytes(4, byteorder="big"))
-                else:
-                    f.write(str(d) + "\n")
+                if binary: f.write(d.to_bytes(4, byteorder="big"))
+                else: f.write(str(d) + "\n")
 
     def read(file_name:str, binary=False):
         """
@@ -124,9 +122,13 @@ def livre():
             self.maison_edition = maison_edition
             self.code_barre = code_barre
 
+        def __str__(self) -> str:
+            return f"Nom : {self.nom}\nAuteur : {self.auteur}\nMaison d'édition : {self.maison_edition}\nCode barre : {self.code_barre}"
+
         def afficher_livre(self):
-            print(f"Nom : {self.nom}\nAuteur : {self.auteur}\nMaison d'édition : {self.maison_edition}\nCode barre : {self.code_barre}")
-   
+            print(self)   
+
+
     livre1 = Livre("One Piece", "Eiichiro Oda", "Shueisha", "978-2-7560-4075-2")
 
     livre1.afficher_livre()
@@ -139,22 +141,20 @@ def livre():
             self.type_roman = type_roman
             self.description = description
         
+
         def modifier_livre(self, nom: str, auteur: str, maison_edition: str, code_barre: str, type_roman:str, description:str):
             super().modifier_livre(nom, auteur, maison_edition, code_barre)
             self.type_roman = type_roman
             self.description = description
 
+        def __str__(self) -> str:
+            return super().__str__() + f"\nType de roman : {self.type_roman}\nDescription : {self.description}"
 
         def afficher_livre(self):
-            super().afficher_livre()
-            print(f"Type de roman : {self.type_roman}\nDescription : {self.description}")
+            print(self)
 
     roman1 = Roman("One Piece", "Eiichiro Oda", "Shueisha", "978-2-7560-4075-2", "Shonen", "Un pirate qui veut devenir le roi des pirates")
 
     roman1.afficher_livre()
     roman1.modifier_livre("Bocchi the Rock", "Aki Hamaji", "Doki", "978-3-7580-7075-2", "Seinen", "Gotou Hitori est une lycéenne qui a commencé à apprendre à jouer de la guitare parce qu'elle rêve de faire partie d'un groupe, mais elle est tellement timide qu'elle ne s'est pas fait un seul ami. Cependant, son rêve pourrait devenir réalité après avoir rencontré Ijichi Nijika, une fille qui joue de la batterie et cherche un nouveau guitariste pour son groupe.")
     roman1.afficher_livre()
-
-
-
-jeu_allumettes()
