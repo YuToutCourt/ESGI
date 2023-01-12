@@ -16,31 +16,25 @@ class Menu:
     def __get_os(self):
         return self.__os
 
-    def __set_os(self, os):
-        self.__os = os
-
     def __get_options(self):
         return self.__options
-
-    def __set_options(self, options):
-        self.__options = options
     
-    def handle_menu_choice(self):
+    def __handle_menu_choice(self):
         """
         Handles menu choice, by calling the appropriate menu function based on the operating system.
         """
         if self.__get_os() == "win32":
-            return self.menu_windows()
+            return self.__menu_windows()
         else :
-            return self.menu_linux()
+            return self.__menu_linux()
 
     def show(self):
         """
         Display the menu by calling handle_menu_choice()
         """
-        self.handle_menu_choice()
+        self.__handle_menu_choice()
 
-    def menu_windows(self):
+    def __menu_windows(self):
         """
         Displays the menu for Windows systems using the consolemenu library.
         """
@@ -55,10 +49,10 @@ class Menu:
             menu.show()
             selected_option = menu.selected_option
 
-            self.execute_function(selected_option)
+            self.__execute_function(selected_option)
             input("Appuyer sur une touche pour continuer...")
 
-    def menu_linux(self):
+    def __menu_linux(self):
         """
         Displays the menu for Linux systems using the simple_term_menu library.
         """
@@ -71,9 +65,9 @@ class Menu:
         menu = TerminalMenu(self.__options)
         while True:
             choix = menu.show()
-            self.execute_function(choix)
+            self.__execute_function(choix)
     
-    def execute_function(self, choix:int):
+    def __execute_function(self, choix:int):
         """
         Executes function based on the user's choice
         """
