@@ -2,6 +2,7 @@
 
 import matplotlib.pyplot as plt
 
+from decimal import Decimal
 from math import factorial, log, sin, cos
 
 
@@ -152,7 +153,7 @@ def f1(x: float, n: int) -> float:
 
     :return: float
     """
-    return x ** n / factorial(n)
+    return x ** n / Decimal(factorial(n))
 
 def Res(x: float, N: int) -> float:
     """
@@ -162,9 +163,12 @@ def Res(x: float, N: int) -> float:
 
     :return: float
     """
-    # formule mathématique pour la somme de la suite géométrique de raison x et de premier terme 1/0!
-    return (1 - x**(N+1)) / (1 - x)
-    # return sum(f1(x, n) for n in range(1, N+1)) Solution pas optimisée
+    somme = 0
+    fact = 1
+    for n in range(1, N+1):
+        fact *= n
+        somme += x ** n / fact
+    return somme
 
 def U(n: int) -> float:
     """
@@ -187,7 +191,14 @@ def V(n: int) -> float:
 
     :return: float
     """
-    return sum(1/factorial(i) for i in range(1,n+1))+1/(n*factorial(n))
+    fact = 1
+    result = 1
+    for i in range(1, n+1):
+        fact *= i
+        result += 1/fact
+    return result + 1/n
+
+    # return U(n) + 1/(n * factorial(n)) <- c'est moins rapide OwO
 
 
 def tierce():

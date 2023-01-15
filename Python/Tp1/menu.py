@@ -3,6 +3,7 @@
 import sys
 
 from all_exo import *
+from decimal import Decimal
 
 class Menu:
     def __init__(self, options: list):
@@ -77,7 +78,7 @@ class Menu:
             2: somme_facotrielle,
             3: arbre_noel,
             4: math_,
-            5: lambda: print(Res(int(input("Entrer la valeur de x : ")), int(input("Entrer la valeur de N : ")))),
+            5: lambda: print(Res(Decimal(input("Entrer la valeur de x : ")), int(input("Entrer la valeur de N : ")))),
             6: lambda: (print(U(int(input("Entrer la valeur de n : ")))), print(V(int(input("Entrer la valeur de n : "))))),
             7: tierce,
             8: sys.exit
