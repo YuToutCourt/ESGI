@@ -2,6 +2,7 @@
 
 import matplotlib.pyplot as plt
 
+from tqdm import tqdm
 from decimal import Decimal
 from math import factorial, log, sin, cos
 
@@ -165,7 +166,7 @@ def Res(x: float, N: int) -> float:
     """
     somme = 0
     fact = 1
-    for n in range(1, N+1):
+    for n in tqdm(range(1, N+1), desc="Calcul de la somme"):
         fact *= n
         somme += x ** n / fact
     return somme
@@ -179,7 +180,7 @@ def U(n: int) -> float:
     """
     somme = 1
     fact = 1
-    for i in range(1, n+1):
+    for i in tqdm(range(1, n+1), desc="Calcul de U"):
         fact *= i
         somme += 1/fact
     return somme
@@ -193,7 +194,7 @@ def V(n: int) -> float:
     """
     fact = 1
     result = 1
-    for i in range(1, n+1):
+    for i in tqdm(range(1, n+1), desc="Calcul de V"):
         fact *= i
         result += 1/fact
     return result + 1/n
