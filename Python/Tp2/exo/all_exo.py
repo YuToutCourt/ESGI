@@ -1,5 +1,11 @@
 from random import randint
 
+from exo.livre import Livre
+from exo.roman import Roman
+from exo.tkinter_exo import App
+
+__all__ = ["calcul_surface", "jeu_allumettes", "fichiers", "livre", "tkinter"]
+
 def calcul_surface():
     """
     Fonction qui calcule la surface sous la courbe
@@ -108,89 +114,20 @@ def fichiers():
 
 def livre():
 
-    class Livre:
-        def __init__(self, nom:str, auteur:str, maison_edition:str, code_barre:str):
-            self.__nom = nom
-            self.__auteur = auteur
-            self.__maison_edition = maison_edition
-            self.__code_barre = code_barre
-
-        def __get_nom(self):
-            return self.__nom
-
-        def __get_auteur(self):
-            return self.__auteur
-
-        def __get_maison_edition(self):
-            return self.__maison_edition
-
-        def __get_code_barre(self):
-            return self.__code_barre
-
-        def __set_nom(self, nom:str):
-            self.__nom = nom
-        
-        def __set_auteur(self, auteur:str):
-            self.__auteur = auteur
-
-        def __set_maison_edition(self, maison_edition:str):
-            self.__maison_edition = maison_edition
-
-        def __set_code_barre(self, code_barre:str):
-            self.__code_barre = code_barre
-
-        
-        def modifier_livre(self, nom:str, auteur:str, maison_edition:str, code_barre:str):
-            self.__set_nom(nom)
-            self.__set_auteur(auteur)
-            self.__set_maison_edition(maison_edition)
-            self.__set_code_barre(code_barre)
-
-        def __str__(self) -> str:
-            return f"Nom : {self.__get_nom()}\nAuteur : {self.__get_auteur()}\nMaison d'édition : {self.__get_maison_edition()}\nCode barre : {self.__get_code_barre()}"
-        
-        def afficher_livre(self):
-            print(self)   
-
-
     livre1 = Livre("One Piece", "Eiichiro Oda", "Shueisha", "978-2-7560-4075-2")
 
     livre1.afficher_livre()
     livre1.modifier_livre("My Hero Academia", "Kohei Horikoshi", "Shueisha", "978-2-7560-4075-2")
     livre1.afficher_livre()
 
-    class Roman(Livre):
-        def __init__(self, nom: str, auteur: str, maison_edition: str, code_barre: str, type_roman:str, description:str):
-            super().__init__(nom, auteur, maison_edition, code_barre)
-            self.__type_roman = type_roman
-            self.__description = description
-        
-        def __get_type_roman(self):
-            return self.__type_roman
-
-        def __get_description(self):
-            return self.__description
-
-        def __set_type_roman(self, type_roman:str):
-            self.__type_roman = type_roman
-
-        def __set_description(self, description:str):
-            self.__description = description
-
-
-        def modifier_livre(self, nom: str, auteur: str, maison_edition: str, code_barre: str, type_roman:str, description:str):
-            super().modifier_livre(nom, auteur, maison_edition, code_barre)
-            self.__set_type_roman(type_roman)
-            self.__set_description(description)
-
-        def __str__(self) -> str:
-            return super().__str__() + f"\nType de roman : {self.__get_type_roman()}\nDescription : {self.__get_description()}"
-
-        def afficher_livre(self):
-            print(self)
 
     roman1 = Roman("One Piece", "Eiichiro Oda", "Shueisha", "978-2-7560-4075-2", "Shonen", "Un pirate qui veut devenir le roi des pirates")
 
     roman1.afficher_livre()
     roman1.modifier_livre("Bocchi the Rock", "Aki Hamaji", "Doki", "978-3-7580-7075-2", "Seinen", "Gotou Hitori est une lycéenne qui a commencé à apprendre à jouer de la guitare parce qu'elle rêve de faire partie d'un groupe, mais elle est tellement timide qu'elle ne s'est pas fait un seul ami. Cependant, son rêve pourrait devenir réalité après avoir rencontré Ijichi Nijika, une fille qui joue de la batterie et cherche un nouveau guitariste pour son groupe.")
     roman1.afficher_livre()
+
+def tkinter():
+
+    app = App()
+    app.mainloop()
