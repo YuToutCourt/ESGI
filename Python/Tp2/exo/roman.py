@@ -15,6 +15,7 @@ class Roman(Livre):
     def set_type_roman(self, type_roman:str):
         self.__type_roman = type_roman
 
+        
     def set_description(self, description:str):
         self.__description = description
 

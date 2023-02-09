@@ -1,7 +1,7 @@
 from menu.menu import Menu
 
 def main():
-    options = ["Calcul surface", "Jeu des allumettes", "Fichiers", "Livre", "Tkinter", "Quitter"]
+    options = ("Calcul surface", "Jeu des allumettes", "Fichiers", "Livre", "Tkinter", "Quitter")
     menu = Menu(options)
     menu.show()
 
