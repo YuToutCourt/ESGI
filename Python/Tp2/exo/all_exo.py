@@ -4,7 +4,6 @@ from exo.livre import Livre
 from exo.roman import Roman
 from exo.tkinter_exo import App
 
-__all__ = ["calcul_surface", "jeu_allumettes", "fichiers", "livre", "tkinter"]
 
 def calcul_surface():
     """

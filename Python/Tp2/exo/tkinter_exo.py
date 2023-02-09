@@ -54,6 +54,11 @@ class App(customtkinter.CTk):
 
 
     def __add_to_file(self, roman:Roman):
+        """
+        Add the roman to the file
+        
+        :param roman: the roman to add
+        """
         with open("BDD.txt", "w") as f:
             f.write(f"""
             --------------------
@@ -67,6 +72,9 @@ class App(customtkinter.CTk):
             """)
 
     def __save(self):
+        """
+        Save the roman in the file
+        """
         roman = Roman(self.entry0.get(), self.entry1.get(), self.entry2.get(), self.entry3.get(), self.entry4.get(), self.entry5.get("1.0", "end-1c"))
         self.__add_to_file(roman)
         # open a new window to confirm the save
