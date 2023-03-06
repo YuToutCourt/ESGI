@@ -10,7 +10,7 @@ def exo_1(chaine: str):
 
 def exo_2(chaine: str):
     """Retourne True si la chaine est trié dans l'ordre alphabétique, False sinon"""
-    return list(chaine).sort() == list(chaine)
+    return sorted(list(chaine)) == list(chaine)
 
 def exo_3(chaine: str):
     """Retourne le nombre de mots"""
@@ -49,7 +49,7 @@ def exo_10(chaine1: str, chaine2: str):
 
 if __name__ == "__main__":
     print(exo_1("Hello World"))
-    print(exo_2("Hello World"))
+    print(exo_2("abc"))
     print(exo_3("Hello World"))
     print(exo_4("Hello World"))
     print(exo_5("Hello World"))
