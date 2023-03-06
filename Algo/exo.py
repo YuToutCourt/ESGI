@@ -35,7 +35,7 @@ def exo_7(nombre: int):
     
 def exo_8(nombre :int):
     """Retourne tout les nombres pairs jusqu'à nombre"""
-    return sum(i for i in range(1, nombre+1) if nombre % 2 == 0)
+    return [i for i in range(1, nombre+1) if i % 2 == 0]
 
 def exo_9(chaine :str):
     """Retourne True si la chaine est un palindrome, False sinon"""
