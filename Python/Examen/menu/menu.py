@@ -4,6 +4,7 @@ import sys
 
 from exos.all_exos import *
 
+
 class Menu:
     def __init__(self, options: list):
         """
@@ -18,14 +19,14 @@ class Menu:
 
     def __get_options(self):
         return self.__options
-    
+
     def __handle_menu_choice(self):
         """
         Handles menu choice, by calling the appropriate menu function based on the operating system.
         """
         if self.__get_os() == "win32":
             return self.__menu_windows()
-        else :
+        else:
             return self.__menu_linux()
 
     def show(self):
@@ -41,10 +42,12 @@ class Menu:
         try:
             from consolemenu import SelectionMenu
         except ImportError:
-            print(">> Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt' <<")
+            print(
+                ">> Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt' <<"
+            )
             sys.exit()
 
-        menu = SelectionMenu(self.__get_options()[:len(self.__get_options()) - 1])
+        menu = SelectionMenu(self.__get_options()[: len(self.__get_options()) - 1])
         while True:
             menu.show()
             selected_option = menu.selected_option
@@ -59,24 +62,24 @@ class Menu:
         try:
             from simple_term_menu import TerminalMenu
         except ImportError:
-            print(">> Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt' <<")
+            print(
+                ">> Veuillez installer les dépendances avec la commande 'pip install -r requirements.txt' <<"
+            )
             sys.exit()
 
         menu = TerminalMenu(self.__options)
         while True:
             choix = menu.show()
             self.__execute_function(choix)
-    
-    def __execute_function(self, choix:int):
+
+    def __execute_function(self, choix: int):
         """
         Executes function based on the user's choice
         """
-        
+
         # TO COMPLETE
 
-        options = {
-           0: sys.exit
-        }
+        options = {0: exo1, 1: exo2, 2: exo3, 3: sys.exit}
 
         if options.get(choix) is not None:
             options[choix]()

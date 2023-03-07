@@ -3,7 +3,7 @@
 from menu.menu import Menu
 
 def main():
-    options = ("", "Quitter")
+    options = ("Seuil", "Suite","Ordi", "Quitter")
     menu = Menu(options)
     menu.show()
 
