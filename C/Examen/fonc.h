@@ -30,7 +30,13 @@ typedef ElementTableau *Tableau;
 /**
  * @brif Enumération des types d'articles
 */
-typedef enum {DIVERS, VETEMENT, NOURRITURE, LIVRE} Type;
+typedef enum {
+    DIVERS,
+    VETEMENT,
+    NOURRITURE,
+    LIVRE
+} Type;
+
 
 /**
  * @brief Structure d'un article
@@ -121,7 +127,7 @@ void liberer_article(Article **article);
  * @param article L'article à sauvegarder
  * @param nomFichier Le nom du fichier
 */
-void save_articile(const Article *article, const char* nomFichier);
+void save_article(const Article *article, const char* nomFichier);
 
 /**
  * @brief Fonction qui charge un article depuis un fichier

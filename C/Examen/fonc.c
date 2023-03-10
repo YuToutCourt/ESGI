@@ -52,6 +52,11 @@ void afficher_tableau(Tableau tab, unsigned size){
 Article* creer_article(){
     // Créer un article avec les valeurs par défaut
     Article *article = malloc(sizeof(Article));
+    
+    if (article == NULL) {
+        printf("Erreur : impossible d'allouer la mémoire nécessaire pour créer un nouvel article.\n");
+        return NULL;
+    }
     strcpy(article->a_nom, "Article");
     article->a_prix = 0.0;
     strcpy(article->a_description, "DEFAULT");
@@ -84,7 +89,7 @@ void liberer_article(Article **article){
     *article = NULL;
 }
 
-void save_articile(const Article *article, const char* nomFichier){
+void save_article(const Article *article, const char* nomFichier){
     FILE *f = fopen(nomFichier, "w");
     if (f == NULL){
         printf("Erreur lors de l'ouverture du fichier %s\n", nomFichier);
@@ -105,34 +110,32 @@ void load_article(Article *article, FILE *ficher){
     fscanf(ficher, "%d", &article->a_type);
 }
 
-
-int main_article(){
-    int nbArticleMax = 1;
-    Article *tab_Article[nbArticleMax];
-    for(int i=0; i<nbArticleMax; i++){
-        tab_Article[i] = creer_article();
-        afficher_article(tab_Article[i]);
-        // rentrer article j'ai pas vu ça a coder dans le ds
-        modifier_article(tab_Article[i]);
-        afficher_article(tab_Article[i]);
-        save_articile(tab_Article[i], "article.txt");
-    }
-    for(int i=0; i<nbArticleMax; i++){
-        liberer_article(&tab_Article[i]);
-    }
-    FILE *f = fopen("article.txt", "r");
-    if (f == NULL){
-        printf("Erreur lors de l'ouverture du fichier %s\n", "article.txt");
+int main_article() {
+    Article *a = creer_article();
+    if (a == NULL) {
+        printf("Erreur lors de la création de l'article.\n");
         return 1;
     }
-    for(int i=0; i<nbArticleMax; i++){
-        tab_Article[i] = creer_article();
-        load_article(tab_Article[i], f);
-        afficher_article(tab_Article[i]);
+    afficher_article(a);
+    modifier_article(a);
+    afficher_article(a);
+    save_article(a, "article.txt");
+    liberer_article(&a);
+
+    FILE *f = fopen("article.txt", "r");
+    if (f == NULL) {
+        printf("Erreur lors de l'ouverture du fichier %s.\n", "article.txt");
+        return 1;
     }
-    for(int i=0; i<nbArticleMax; i++){
-        liberer_article(&tab_Article[i]);
+    Article *b = malloc(sizeof(Article));
+    if (b == NULL) {
+        printf("Erreur : impossible d'allouer la mémoire nécessaire pour charger l'article.\n");
+        return 1;
     }
+    load_article(b, f);
+    afficher_article(b);
+    liberer_article(&b);
     fclose(f);
+
     return 0;
 }
