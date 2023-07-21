@@ -1,5 +1,3 @@
-from datetime import datetime
-
 class Magazine:
     def __init__(self, titre:str, numero:int, date:str):
         self.titre = titre
