@@ -38,47 +38,57 @@ if __name__ == '__main__':
     for livre in bibliotheque.livre_disponible():
         print(livre.titre, livre.auteur, livre.isbn)
 
+    print("----------------------------------------")
+
     # Affichage des magazines disponibles
     print("Magazines disponibles:")
     for magazine in bibliotheque.magazine_disponible():
         print(magazine.titre, magazine.numero, magazine.date)
+    print("----------------------------------------")
 
     print("L'utilisateur 1 emprunte un livre et un magazine")    
     # L'utilisateur 1 emprunte un livre
     liste_utilisateur[0].emprunter_livre(bibliotheque.chercher_livre(titre="Le Trône de fer"), bibliotheque)
     # L'utilisateur 1 emprunte un magazine
     liste_utilisateur[0].emprunter_magazine(bibliotheque.chercher_magazine(titre="Le Point"), bibliotheque)
-
+    print("----------------------------------------")
 
     # Affichage des livres et magazines empruntés par l'utilisateur 1
     print("Livres empruntés par l'utilisateur 1:")
     liste_utilisateur[0].affiche_livre_emprunter()
+    print("----------------------------------------")
     print("Magazines empruntés par l'utilisateur 1:")
     liste_utilisateur[0].affiche_magazine_emprunter()
+    print("----------------------------------------")
 
 
     # Affichage des livres disponibles
     print("Livres disponibles:")
     for livre in bibliotheque.livre_disponible():
         print(livre.titre, livre.auteur, livre.isbn)
+    print("----------------------------------------")
 
     # Affichage des magazines disponibles
     print("Magazines disponibles:")
     for magazine in bibliotheque.magazine_disponible():
         print(magazine.titre, magazine.numero, magazine.date)
+    print("----------------------------------------")
 
     print("L'utilisateur 1 retourne un livre et un magazine")
     # L'utilisateur 1 retourne un livre
     liste_utilisateur[0].retour_livre(liste_utilisateur[0].livre_emprunter[0], bibliotheque)
     # L'utilisateur 1 retourne un magazine
     liste_utilisateur[0].retour_magazine(liste_utilisateur[0].magazine_emprunter[0], bibliotheque)  
+    print("----------------------------------------")
 
     # Affichage des livres disponibles
     print("Livres disponibles:")
     for livre in bibliotheque.livre_disponible():
         print(livre.titre, livre.auteur, livre.isbn)
+    print("----------------------------------------")
 
     # Affichage des magazines disponibles
     print("Magazines disponibles:")
     for magazine in bibliotheque.magazine_disponible():
         print(magazine.titre, magazine.numero, magazine.date)
+    print("----------------------------------------")
