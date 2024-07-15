@@ -1,0 +1,4 @@
+Failed password
+Invalid user           
+authentication failure   
+session opened for user

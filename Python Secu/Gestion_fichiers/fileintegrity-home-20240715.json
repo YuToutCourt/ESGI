@@ -1,0 +1,22 @@
+{
+    "1": {
+        "chemin": "./fileintegrity-home-20240715.json",
+        "taille": 0,
+        "md5": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "2": {
+        "chemin": "./readme.md",
+        "taille": 1023,
+        "md5": "4a2af17bec735f6bab6fd4bb2f7cafff"
+    },
+    "3": {
+        "chemin": "./fileIntegrity.py",
+        "taille": 1994,
+        "md5": "844927f1a64f6362b513ea249f73b2b1"
+    },
+    "4": {
+        "chemin": "./fileintegrity-home-$(date + \\%Y\\%m\\%d).json",
+        "taille": 418,
+        "md5": "34d5ce416d9d6d7b60c7909977166a13"
+    }
+}
