@@ -1,3 +1,8 @@
+Yohann MALEY
+Samuel NUEZ
+Florent LEBORGNE
+
+
 #  Analyse du besoin
 
 ## Identification des besoins
@@ -107,3 +112,4 @@ Le projet est découpé en plusieurs scripts Python avec chacun leur utilité :
 
 # Auteurs
 Les pyrobarbares DOVAKING
+
